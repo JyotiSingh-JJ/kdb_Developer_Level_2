@@ -1,0 +1,11 @@
+// @fileOverview Extracts the top n or bottom n records in a table after ordering by a specified 
+// column in the table
+// 
+// @returns {Type} Enter a return description here...
+{[orderColumn;order;N;tab]
+    //Pseudocode: 
+    //determine the keywords associated with the ordering required 
+    //order the table by the column provided in ascending order
+    //subset the first/last N records from the newly ordered table
+    //output table ordering shound be in ascending order
+    }

@@ -1,0 +1,30 @@
+// @fileOverview This function is called when the module is loaded.
+// @returns {Type} Enter a return description here...
+{[]
+  logMSG:{[msg] -1 string[.z.p],"|",msg};
+
+  // Copy images to local images dir only on import (when ORIG is set)
+  if[count b:getenv[`AX_WORKSPACE_ORIG];
+   system["mkdir -p $HOME/developer/html/ax/images"];
+   system["find ",b,"/kxscm/module/FP.Images/file -type f | xargs cp -t $HOME/developer/html/ax/images/"];
+   :`];
+
+  //getting the envVars
+  FP_DB:$[count d:getenv[`FP_DB];d;getenv[`HOME],"/fundamentals_capstone_dbs/"];
+  REF_PORT:$[count p:getenv[`REF_PORT];p;"5457"];
+  FP_DB_SCRIPT:getenv[`AX_WORKSPACE],"/FP.Setup/datacreation.q";
+  REF_SCRIPT:getenv[`AX_WORKSPACE],"/FP.Setup/referenceDataCreation.q";
+
+  //create the database
+  //if the DB doesn't exist, run script to make it
+  if[not count key hsym`$FP_DB;
+    logMSG "Building Final Project - Options Data Database";
+    system"nohup q ",FP_DB_SCRIPT," -saveDB ",FP_DB," >/dev/null 2>&1"
+    logMSG "CREATED Database at: ",FP_DB];
+
+  //run the Reference data service
+  logMSG "Starting reference data service on port ",REF_PORT;
+  system"test -f /tmp/ref.pid && pkill -F /tmp/ref.pid && rm /tmp/ref.pid || true";
+  system"/bin/sh -c 'nohup q ",REF_SCRIPT," -p ",REF_PORT," >/dev/null 2>&1 & echo $! > /tmp/ref.pid'";
+
+  system"l ",getenv[`AX_WORKSPACE],"/FP.Setup/submit.q_"}

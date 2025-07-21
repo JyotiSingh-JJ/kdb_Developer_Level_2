@@ -1,0 +1,11 @@
+// @fileOverview Returns a dictionary of the tables within the current process 
+// associated with the number of records for each.
+// @returns {dictionary} A dictionary of table names {symbol} associated to a count of 
+// records {long}
+{[]
+    //Pseudocode: 
+    //use the inbuild keyword that shows all the tables in the proccess to get the list of tables
+    //use the keyword value to return the underlying table not the reference name 
+    //get the count of these values for all of these tables 
+    //associated these together
+    }

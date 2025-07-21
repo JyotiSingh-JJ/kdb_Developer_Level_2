@@ -1,0 +1,6 @@
+// @fileOverview Timestamps and logs an input message to stdout
+// @param msg {string} Message to be logged 
+// @returns {()} Null
+{[msg]
+    -1 string[.z.p],"|",msg
+    }

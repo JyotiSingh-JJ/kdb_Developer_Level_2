@@ -1,0 +1,9 @@
+// @fileOverview Parses an exchange message to return the brokerId
+// @param exchMsg {string} An exchange message as a string
+// @returns {long} Returns the brokerID as a long 
+{[exchMsg]
+        //Pseudocode:
+    //split the string based on the delimiter
+    //Determine if the message is CME or ISE
+    //Return the correct portion of the split string based on message origination
+    }

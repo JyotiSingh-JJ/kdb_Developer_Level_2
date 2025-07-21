@@ -1,0 +1,13 @@
+// @fileOverview A function to classify trades relative to market prices at the time of trade.
+// @param tab {table} A a table that has columns  price, side, bid and ask
+// @returns {table} The provided table with a with a new column called exQuality indicating 
+// trade performance - good (1b) is within or better than market, bad (0b) is outside of market
+{[tab]
+    //Pseudocode: 
+    //Performing an update will keep the original table 
+    //When classifying, need to first check the side
+    //If side is Buy, then a good trade was bought for less than what the market was asking for
+    //If side is Sell, then a good trade sold for more than what the market was bidding for
+    //The vector conditional might prove useful
+    
+    }
