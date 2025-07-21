@@ -1,7 +1,3 @@
-// @fileOverview Enter a description here...
-// @fileOverview Enter a description here...
-// @returns {Type} Enter a return description here...
-// @returns {Type} Enter a return description here...
 # Options Trading Desk Capstone Project
 
 # Introduction
@@ -219,7 +215,6 @@ information that we want to extract.
 
 ```q
 //your code here 
-/ Convert expiry column from string to date format
 select expiry from optRef
 optRef: update expiry: "D"$expiry from optRef
 
@@ -594,7 +589,6 @@ Again, the table should be keyed on the column `option_id`.**
 ```q
 //your code here - or work in the scratchpad
 edgeProfileFull:edgeProfile lj 1!(optRef lj (1!instRef))
-
 ```
 ### End of Sub Section testing
 
@@ -602,6 +596,7 @@ Once you have completed this sub section, you can test all your changes by runni
 Ensure there are no Fail's before moving onto the next section. 
 
 ```q
+//To test all the exercises at the end of the project
 testSection[`exercise1]
 testSection[`exercise2]
 testSection[`exercise3]
